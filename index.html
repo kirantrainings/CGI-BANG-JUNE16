@@ -1,6 +1,7 @@
-<html>
+<html ng-app="salesApp">
 
 <head>
+    <title>{{Welcome}}</title>
     <link rel="stylesheet" href="content/css/bootstrap.css">
     <link rel="stylesheet" href="content/css/bootstrap-theme.css">
     <script src="vendor/jquery-2.2.0.js"></script>
@@ -9,6 +10,15 @@
     <script src="vendor/angular-ui-router.js"></script>
 </head>
 
-<body></body>
+<body>
+    <div class="content">
+        <div ng-include="app/common/header.tpl.html"></div>
+    </div>
+
+    <script src="app/login/login.js"></script>
+    <script src="app/products/products.js"></script>
+    <script src="app/register/register.js"></script>
+    <script src="app/app.js"></script>
+</body>
 
 </html>
