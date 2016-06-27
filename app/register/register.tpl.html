@@ -30,7 +30,8 @@
     <div class="form-group">
         <label class="control-label col-xs-2">Country</label>
         <div class="col-xs-4">
-            <select class="form-control">
+            <select class="form-control" ng-model="selectedCountry" ng-options="item.ISDCode+','+item.name group by item.continent for item in countries">
+                <option value="">Please Select</option>
             </select>
         </div>
     </div>
