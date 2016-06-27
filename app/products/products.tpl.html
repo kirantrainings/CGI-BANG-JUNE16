@@ -1,3 +1,30 @@
-<table>
-    <tr>S.No</tr>
-</table>
+<div ng-controller="productCtrl">
+    <div class="col-xs-6">
+        <table class="table table-striped">
+            <tr>
+                <td>S.No</td>
+                <td>Category</td>
+                <td>Name</td>
+                <td>Model</td>
+                <td>Price</td>
+                <td>
+                    <input type="text" ng-model="searchProduct"> </td>
+            </tr>
+            <tr ng-repeat="item in products|filter:{category:searchProduct}|orderBy:'-price'">
+                <td>{{$index+1}}</td>
+                <td>{{item.category|uppercase}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.model}}</td>
+                <td>{{item.price|currency:"$"}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="showSelectedItem(item)">Select</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-xs-6">
+        <pre>{{selectedItem|json}}</pre>
+
+    </div>
+</div>
