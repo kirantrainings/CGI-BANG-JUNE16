@@ -1,0 +1,22 @@
+{
+    "products": [
+        {
+            "category": "Gadgets",
+            "name": "iPhone",
+            "price": "60000",
+            "model": "6s"
+        },
+        {
+            "category": "Apparels",
+            "name": "pepeJeans",
+            "price": "4000",
+            "model": "6ABCDs"
+        },
+        {
+            "category": "Living",
+            "name": "IFB Washing Machine",
+            "price": "40000",
+            "model": "Front Load"
+        }
+    ]
+}
