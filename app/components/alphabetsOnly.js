@@ -14,3 +14,10 @@ angular.module("components")
             }
         };
     })
+    .directive("helloWorld", function () {
+        return {
+            restrict: "A",
+            template: "<span ng-transclude></span><h1>Hey Hello</h1>",
+            transclude: true
+        }
+    });
