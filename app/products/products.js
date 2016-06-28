@@ -12,7 +12,7 @@ angular.module('products')
 
 
 angular.module('products')
-    .controller('productCtrl', function ($scope, productSvc) {
+    .controller('productCtrl', function ($scope, productSvc, $rootScope) {
 
         productSvc.getProducts().then(function (response) {
             $scope.products = response.data.products;
@@ -23,6 +23,9 @@ angular.module('products')
 
         $scope.showSelectedItem = function (product) {
             $scope.selectedItem = product;
+            $rootScope.$broadcast("PRODUCT_SELECTED", {
+                item: product
+            });
         }
     });
 

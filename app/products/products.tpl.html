@@ -11,11 +11,11 @@
                     <input type="text" ng-model="searchProduct"> </td>
             </tr>
             <tr ng-repeat="item in products|filter:{category:searchProduct}|orderBy:'-price'">
-                <td>{{$index+1}}</td>
-                <td>{{item.category|uppercase}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.model}}</td>
-                <td>{{item.price|currency:"$"}}</td>
+                <td>{{::$index+1}}</td>
+                <td>{{::item.category|uppercase}}</td>
+                <td>{{::item.name}}</td>
+                <td>{{::item.model}}</td>
+                <td>{{::item.price|currency:"$"}}</td>
                 <td>
                     <button class="btn btn-primary" ng-click="showSelectedItem(item)">Select</button>
                 </td>

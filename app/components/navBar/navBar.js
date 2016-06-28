@@ -1,5 +1,5 @@
 angular.module('components')
-    .directive('navBar', function () {
+    .directive('navBar', function ($rootScope) {
 
         return {
             // template: "<h1>Hello World</h1>",
@@ -9,9 +9,14 @@ angular.module('components')
                 brand: "@",
                 navItems: "=",
                 selectedItem: "&" //function
-            }
-            //A for Attribute
-            //E Element 
-            //C Class
+            },
+            link: function (scope, element, attrs) {
+                    $rootScope.$on("PRODUCT_SELECTED", function (evt, args) {
+                        console.log(args);
+                    });
+                }
+                //A for Attribute
+                //E Element 
+                //C Class
         };
     });

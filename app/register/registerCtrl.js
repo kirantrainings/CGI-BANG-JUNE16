@@ -11,5 +11,11 @@ angular.module('register')
             $scope.showError = "Error Occurred";
         });
 
-        console.log("Hey how r  u");
+        $scope.$watchCollection("user", function (newVal, oldVal) {
+
+            console.log(newVal);
+            console.log(oldVal);
+        });
+
+
     });
