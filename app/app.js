@@ -1,6 +1,6 @@
 //module Creation.
 
-angular.module('salesApp', ['login', 'register', 'products']);
+angular.module('salesApp', ['login', 'register', 'products', 'components']);
 
 
 //extending the module with config function.
