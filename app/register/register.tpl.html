@@ -2,8 +2,12 @@
     <div class="form-group">
         <label class="control-label col-xs-2">First Name</label>
         <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="First Name" name="firstName" ng-model="user.firstName" alphabets-only>
-
+            <input type="text" class="form-control" placeholder="First Name" name="firstName" ng-model="user.firstName" alphabets-only ng-minlength="4" ng-maxlength="15" required ng-enter="registerUser()">
+            <span ng-show="registerForm.firstName.$dirty">
+                <span ng-show="registerForm.firstName.$error.required">First Name Required.</span>
+            <span ng-show="registerForm.firstName.$error.minlength ">Minlength should be 4</span>
+            <span ng-show="registerForm.firstName.$error.maxlength">Max length should be 15</span>
+            </span>
         </div>
     </div>
     <div class="form-group">

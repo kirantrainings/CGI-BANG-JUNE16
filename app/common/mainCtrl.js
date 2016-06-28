@@ -21,7 +21,9 @@ angular.module('salesApp')
   }*/
         };
 
-        $scope.tabs = [{
+        $scope.customString ="<h1>{{companyName}}</h1>";
+        
+    $scope.tabs = [{
                 name: "Login",
                 templateUrl: "app/login/login.tpl.html"
             },
