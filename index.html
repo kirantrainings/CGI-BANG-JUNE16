@@ -13,8 +13,9 @@
 <body>
     <div class="content" ng-controller="mainCtrl">
         <!--<div ng-include='headerUrl'></div>-->
-        <nav-bar></nav-bar>
+        <div nav-bar brand="{{companyName}}" selected-item="loadContentTemplate(data)" nav-items="tabs"></div>
         <div ng-include="contentUrl"></div>
+
     </div>
 
     <script src="app/login/login.js"></script>
