@@ -15,7 +15,7 @@ angular.module('salesApp')
             }
         };
         var productsObj = {
-            templateUrl: "app/products/products.tpl.html",
+            templateUrl: "app/products/products.html",
             controller: "productCtrl",
             resolve: {
                 products: function () {
@@ -45,6 +45,13 @@ angular.module('salesApp')
                 }
             }
         };
+
+        var productObj = {
+            name: "Products.product",
+            templateUrl: "app/products/products.product.html"
+        };
+
+
         var registerObj = {
             templateUrl: "app/register/register.tpl.html",
             controller: 'registerCtrl'
@@ -53,4 +60,13 @@ angular.module('salesApp')
         $stateProvider.state("Login", loginObj);
         $stateProvider.state("Register", registerObj);
         $stateProvider.state("Products", productsObj);
+        $stateProvider.state("Products.product", productObj);
+    });
+angular.module('salesApp')
+    .run(function ($rootScope) {
+
+        $rootScope.$on("$stateChangeStart", function (evt, toState, toParams, fromState, fromParams) {
+            console.log(toState);
+            console.log(fromState);
+        })
     });
