@@ -1,8 +1,11 @@
 angular.module('register')
-    .controller('registerCtrl', function ($scope, lookupSvc) {
+    .controller('registerCtrl', function ($scope, lookupSvc, $state) {
         $scope.user = {};
         $scope.registerUser = function () {
             console.log($scope.user);
+            $state.go('Login', {
+                username: $scope.user.firstName
+            });
         };
         lookupSvc.getCountries().then(function (response) {
             console.log("hello i am in the callback");

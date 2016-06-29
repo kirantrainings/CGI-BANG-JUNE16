@@ -1,5 +1,5 @@
 angular.module('salesApp')
-    .controller('mainCtrl', function ($scope) {
+    .controller('mainCtrl', function ($scope, $state) {
         $scope.companyName = "Consultant For Govt and Industry";
 
 
@@ -9,8 +9,8 @@ angular.module('salesApp')
         var productUrl = "app/products/products.tpl.html";
 
         $scope.loadContentTemplate = function (type) {
-            $scope.contentUrl= type.templateUrl;
-          /*  if (type == 'login') {
+            /*  $scope.contentUrl= type.templateUrl;
+            if (type == 'login') {
       $scope.contentUrl = loginUrl;
   }
   if (type == "register") {
@@ -19,11 +19,12 @@ angular.module('salesApp')
   if (type == 'products') {
       $scope.contentUrl = productUrl;
   }*/
+            $state.go(type.name)
         };
 
-        $scope.customString ="<h1>{{companyName}}</h1>";
-        
-    $scope.tabs = [{
+        $scope.customString = "<h1>{{companyName}}</h1>";
+
+        $scope.tabs = [{
                 name: "Login",
                 templateUrl: "app/login/login.tpl.html"
             },
