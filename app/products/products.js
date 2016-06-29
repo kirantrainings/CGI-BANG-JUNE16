@@ -12,15 +12,16 @@ angular.module('products')
 
 
 angular.module('products')
-    .controller('productCtrl', function ($scope, productSvc, $rootScope) {
+    .controller('productCtrl', function ($scope, products, productsFromSvc, $rootScope) {
 
-        productSvc.getProducts().then(function (response) {
-            $scope.products = response.data.products;
-            console.log($scope.products);
-        }).catch(function (response) {
-            $scope.showError = "Error Occured";
-        });
-
+        $scope.products = productsFromSvc;
+        /* productSvc.getProducts().then(function (response) {
+             $scope.products = response.data.products;
+             console.log($scope.products);
+         }).catch(function (response) {
+             $scope.showError = "Error Occured";
+         });*/
+        console.log(productsFromSvc);
         $scope.showSelectedItem = function (product) {
             $scope.selectedItem = product;
             $rootScope.$broadcast("PRODUCT_SELECTED", {
@@ -37,7 +38,7 @@ angular.module('products')
             var dfd = $q.defer();
             $http.get('app/data/products.json')
                 .then(function (response) {
-                    dfd.resolve(response);
+                    dfd.resolve(response.data.products);
                 }).catch(function (errorResponse) {
                     dfd.reject(errorResponse);
                 });
